@@ -1,0 +1,6 @@
+<div>
+  <h1><%= @user.name %></h1>
+  <small class="font-italic">email: <%= @user.name %></small>
+  <h4>Created Events</h4>
+  <%= render 'shared/list_group', object: @user.created_events %>
+</div>

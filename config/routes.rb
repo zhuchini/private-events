@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
+  get 'events/new'
+
+  get 'events/create'
+
+  get 'events/show'
+
   root 'static_pages#index'
 
   get 'users/new'
