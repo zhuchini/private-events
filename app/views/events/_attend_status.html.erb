@@ -1,0 +1,15 @@
+<% if !logged_in? %>
+  <p>
+    <%= link_to "Login", login_path %> or 
+    <%= link_to "Signup", signup_path %> now
+    to attend this event!
+  </p>
+<% elsif @event.date.past? %>
+  <p>Event Passed.</p>
+<% elsif @event.attendees.include? current_user %>
+  <p>You're attending this event!</p>
+<% else %>
+  <%= button_to 'Attend', attend_path, method: :post,
+                          data: { confirm: "You are attending '#{@event.title}'." },
+                          class: 'btn btn-primary btn-lg' %>
+<% end %>

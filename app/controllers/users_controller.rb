@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:notice] = "Invalid Credentials"
-      render :new
+      render 'new'
     end
   end
 

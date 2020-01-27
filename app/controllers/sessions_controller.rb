@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Login Success!"
       redirect_to root_url
     else
-      flash[:warning] = "Failed"
+      flash[:warning] = "Failed."
       render 'new'
     end
   end

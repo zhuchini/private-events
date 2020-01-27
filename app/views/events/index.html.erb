@@ -1,8 +1,10 @@
-<%= will_paginate @events %>
-
-<h1>All Events</h1>
 <div>
-  <li><%= render @events %></li>
-</div>
+  <%= will_paginate @events %>
 
-<%= will_paginate @events %>
+  <h1>All Events</h1>
+  <div>
+    <li><%= render @events %></li>
+  </div>
+
+  <%= will_paginate @events %>
+</div>

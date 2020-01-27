@@ -1,2 +1,20 @@
-<h1><%= @event.title %></h2>
-<h3>Created by: <%= @event.creator.name %></h3>
+<div>
+  <h1><%= @event.title %></h2>
+  <h3>Created by: <%= @event.creator.name %></h3>
+  <p><%= @event.location %></p>
+  <p><%= @event.date %></p>
+</div>
+
+<div>
+  <p>Attendees: </p>
+  <% if @event.attendees.any? %>
+    <ul>
+      <% @event.attendees.take(10) each do |x| %>
+        <li><% x.name %></li>
+      <% end %>
+      <% [...] if @event.attendees.size > 10 %>
+    </ul>
+  <% end %>
+  
+  <%= render 'attend_status' %>
+</div>
