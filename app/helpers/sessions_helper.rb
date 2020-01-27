@@ -13,6 +13,7 @@ module SessionsHelper
 
   def require_login
     return unless !logged_in?
+
     flash[:warning] = 'You need to be logged in!'
     redirect_to root_url
   end
