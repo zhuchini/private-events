@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
   def attend
     Event.find_by(id: params[:id]).attendees << current_user
-    flash[:success] = "You're now attending this event!"
+    flash[:success] = "Attending!"
     redirect_to event_path
   end
 
