@@ -1,9 +1,6 @@
 <%= form_for :session, url: login_path do |f| %>
-  <%= f.label :email, class: "col-form-label" %>
-  <%= f.email_field :email, class: 'form-control' %><br>
-
-  <%= f.label :password, class: "col-form-label" %>
-  <%= f.password_field :password, class: 'form-control'%><br>
+  <%= f.label :email %>
+  <%= f.email_field :email %><br>
   
-  <%= f.submit 'Login', class: 'btn btn-primary m-auto' %>
+  <%= f.submit 'Login' %>
 <% end %>

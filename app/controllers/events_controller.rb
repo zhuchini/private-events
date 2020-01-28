@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
-  before_action :require_login, except: %i[index show]
+  # before_action :require_login, except: %i[index show]
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 6)
+    @upcoming_events = Event.upcoming.paginate(page: params[:page], per_page: 6)
+    @previous_events = Event.previous.paginate(page: params[:page], per_page: 6)
   end
 
   def new

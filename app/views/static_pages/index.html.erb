@@ -1,22 +1,6 @@
-<% if !logged_in? %>
+<% if logged_in? %>
   <h1>Private Events</h1>
   <p>Choose an event to attend, or create one.</p><br>
   <%= link_to 'Sign Up', signup_path %><br>
   <%= link_to 'Login', login_path %>
 <% end %>
-
-<h1>Upcoming Events</h1>
-<% if Event.upcoming_events.any? %>
-  <div>
-    <%= render Event.upcoming_events.take(3) %>
-  </div>
-  <% elsif Event.previous_events.any? %>
-    <p>There are no current events.</p>
-    <div>
-    <h2>Past Events</h2>
-    <%= render Event.previous_events.take(3) %>
-    </div>
-  <% else %>
-    <p>No events yet.</p>
-  <% end %>
-</div>

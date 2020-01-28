@@ -1,4 +1,8 @@
 module SessionsHelper
+  def login(user)
+    session[:user_id] = user.id
+  end
+
   def logged_in?
     !current_user.nil?
   end
@@ -11,10 +15,10 @@ module SessionsHelper
     session[:user_id] = nil
   end
 
-  def require_login
-    if !logged_in?
-      flash[:warning] = 'You need to be logged in!'
-      redirect_to root_url
-    end
-  end
+  # def require_login
+  #   if logged_in?
+  #     flash[:warning] = 'You need to be logged in!'
+  #     redirect_to root_url
+  #   end
+  # end
 end

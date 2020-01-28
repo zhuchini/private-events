@@ -7,7 +7,6 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :date, presence: true
 
-  default_scope { order(date: :desc) }
-  scope :previous_events, -> { where('date < ?', Time.now) }
-  scope :upcoming_events, -> { where('date > ?', Time.now) }
+  scope :upcoming, -> { where('date >= ?', Time.now).order(date: :asc).includes(:creator) }
+  scope :previous, -> { where('date < ?', Time.now).order(date: :desc).includes(:creator) }
 end
