@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if user = User.find_by(email: params[:session][:email])
       login(user)
       flash[:success] = 'Login Success!'
-      redirect_to user_path(@user)
+      redirect_to root_url
     else
       flash[:warning] = 'Failed.'
       render 'new'

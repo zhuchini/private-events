@@ -9,18 +9,13 @@
 User.delete_all
 Event.delete_all
 
-User.create!(name:"jamcry", email:"jamcry@hotmail.com",
-             password:"foobar", password_confirmation:"foobar")
-User.create!(name:"john", email:"john@doe.com",
-             password:"foobar", password_confirmation:"foobar")
-User.create!(name: "dirk", email:"gent@ly.com",
-             password:"foobar", password_confirmation:"foobar")
+User.create!(name:"jamcry", email:"jamcry@hotmail.com")
+User.create!(name:"john", email:"john@doe.com")
+User.create!(name: "dirk", email:"gent@ly.com")
 
 50.times do |n|
   User.create!(name: Faker::Name.unique.name,
-               email: Faker::Internet.email,
-               password: "foobar",
-               password_confirmation: "foobar")
+               email: Faker::Internet.email)
 end
 
 

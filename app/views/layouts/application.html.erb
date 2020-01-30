@@ -9,11 +9,18 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %><br>
+    <%= render 'layouts/navbar' %>
+    <br>
     
     <div class="container">
       <%= render 'layouts/flash_messages' %>
     <%= yield %>
-    </div>
+    </div><br>
+
+    <footer>
+      <% if logged_in? %>
+        <%= link_to 'Logout', logout_path %>
+      <% end %>
+    </footer>
   </body>
 </html>

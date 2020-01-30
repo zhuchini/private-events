@@ -10,10 +10,10 @@ class UsersController < ApplicationController
     if @user.save
       login(@user)
       flash[:success] = 'Account Created!'
-      redirect_to @user
+      redirect_to user_path(@user)
     else
       flash[:notice] = 'Invalid Credentials'
-      render 'new'
+      render :new
     end
   end
 

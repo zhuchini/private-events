@@ -8,11 +8,16 @@ module SessionsHelper
   end
 
   def current_user
-    User.find_by(id: session[:user_id])
+    @current ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def logout
-    session[:user_id] = nil
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
+  def current_user?(user)
+    user == current_user
   end
 
   # def require_login

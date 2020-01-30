@@ -15,10 +15,12 @@
     <div>
       <h4>Upcoming Events</h4>
       <ul>
-        <% if @upcoming.events.any? %>
-          <% @upcoming.events.each do |x| %>
+        <% if @upcoming_events.any? %>
+          <% @upcoming_events.each do |x| %>
             <li><% x.title %></li>
           <% end %>
+        <% else %>
+          <p>None for now</p>
         <% end %>
       </ul>
     </div>
@@ -29,6 +31,8 @@
           <% @previous_events.each do |x| %>
             <li><% x.title %></li>
           <% end %>
+        <% else %>
+          <p>None for now</p>
         <% end %>
       </ul>
     </div>

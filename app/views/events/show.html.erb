@@ -1,7 +1,7 @@
 <h1>Event</h1>
 <div>
-  <h1><%= @event.title %></h2>
-  <h3>Created by: <%= @event.creator.name %></h3>
+  <p><%= @event.title %></p>
+  <p>Created by: <%= @event.creator.name %></p>
   <p><%= @event.location %></p>
   <p><%= @event.date %></p>
 </div>
@@ -9,13 +9,8 @@
 <div>
   <p>Attendees: </p>
   <ul>
-    <% @event.attendees. each do |attendee| %>
-      <li>
-        <%= link_to(attendee.name, user_path(attendee)) %> 
-        <% if logged_in? and attendee == current_user %>
-          <span class="has-text-grey">(you)</span>
-        <% end %>
-      </li>
+    <% attendees.each do |attendee| %>
+      <li><%= attendee.user.name %> | <%= attendee.user.email %></li>
     <% end %>
   </ul>
 </div>
