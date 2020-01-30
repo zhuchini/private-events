@@ -1,40 +1,22 @@
-<div>
-  <h1>Profile: <%= @user.name %></h1>
-  <div>
-    <h4>Created Events</h4>
-    <ul>
-      <% if @user.created_events.any? %>
-        <% @user.created_events.each do |x| %>
-          <li><% x.title %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+<h1>Profile: <%= @user.name %></h1>
 
-  <div>
-    <div>
-      <h4>Upcoming Events</h4>
-      <ul>
-        <% if @upcoming_events.any? %>
-          <% @upcoming_events.each do |x| %>
-            <li><% x.title %></li>
-          <% end %>
-        <% else %>
-          <p>None for now</p>
-        <% end %>
-      </ul>
-    </div>
-    <div>
-      <h4>Past Events</h4>
-      <ul>
-        <% if @previous_events.any? %>
-          <% @previous_events.each do |x| %>
-            <li><% x.title %></li>
-          <% end %>
-        <% else %>
-          <p>None for now</p>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+<div>
+  <h4>Upcoming Events</h4>
+  <ul>
+    <% @upcoming_events.each do |event| %>
+      <li>
+        <%= link_to(event.name, event_path(event)) %> | <%= event.date %>
+      </li>
+    <% end %>
+  </ul>
 </div>
+<div>
+  <h4>Past Events</h4>
+  <ul>
+    <% @previous_events.each do |event| %>
+      <li>
+        <%= link_to(event.name, event_path(event)) %> | <%= event.date %>
+      </li>
+    <% end %>
+  </ul>
+<div>

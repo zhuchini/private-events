@@ -22,15 +22,14 @@ class EventsController < ApplicationController
     end
   end
 
-  # def show
-  def attendee
+  def show
     @event = Event.find_by(id: params[:event_id])
-    @users = User.All
-    @attendees = Attendee.where(event_id: params[:event_id])
+    @users = User.all
+    @attendees = Attendance.where(event_id: params[:event_id])
   end
 
   def attendance
-    attendee = Attendee.new(user_id: params['user_id'], event_id: params['event_id'])
+    attendee = Attendance.new(user_id: params['user_id'], event_id: params['event_id'])
 
     if attendee.save
       flash[:success] = 'Attending!'
