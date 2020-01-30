@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :attended_events, through: :attendances
 
   def upcoming_events
-    self.created_events.where('date >= ?', Time.now).order(date: :asc)
+    created_events.where('date >= ?', Time.now).order(date: :asc)
   end
 
-  def previous_events 
-    self.created_events.where('date < ?', Time.now).order(date: :desc)
+  def previous_events
+    created_events.where('date < ?', Time.now).order(date: :desc)
   end
 end

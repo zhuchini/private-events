@@ -5,10 +5,10 @@ class Attendance < ApplicationRecord
   validates :attended_event_id, presence: true
 
   def accept
-    self.update(attending: true)
+    update(attending: true)
   end
 
   def decline
-    self.update(attending: false)
+    update(attending: false)
   end
 end
