@@ -1,15 +1,15 @@
-<h1>Event</h1>
+<h2>Event</h2>
 <div>
-  <p><%= @event.title %></p>
+  <h3><%= @event.title %></h3>
   <p>Created by: <%= @event.creator.name %></p>
-  <p><%= @event.location %></p>
-  <p><%= @event.date %></p>
+  <p>Location: <%= @event.location %></p>
+  <p>Date: <%= @event.date %></p>
 </div>
 
 <div>
-  <p>Attendees: </p>
+  <p><strong>Attendees: </strong></p>
   <ul>
-    <% attendees.each do |attendee| %>
+    <% @event.attendances.each do |attendee| %>
       <li><%= attendee.user.name %> | <%= attendee.user.email %></li>
     <% end %>
   </ul>

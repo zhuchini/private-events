@@ -9,21 +9,29 @@
 User.delete_all
 Event.delete_all
 
-User.create!(name:"jamcry", email:"jamcry@hotmail.com")
-User.create!(name:"john", email:"john@doe.com")
-User.create!(name: "dirk", email:"gent@ly.com")
+User.create!(name:"Henry", email:"henry@hotmail.com")
+User.create!(name:"John", email:"john@doe.com")
+User.create!(name: "Kirk", email:"kirk@ly.com")
 
 50.times do |n|
   User.create!(name: Faker::Name.unique.name,
                email: Faker::Internet.email)
 end
 
-
-user_id_range = ((User.first.id)..(User.last.id))
-50.times do |n|
-  e = Event.create!(title: Faker::Book.title,
-                    creator: User.find(rand(user_id_range)),
-                    location: Faker::University.name,
-                    date: Faker::Time.between(10.days.ago, 40.days.from_now, :all))
-  rand(user_id_range).times {e.attendees << User.find(rand(user_id_range))}
+User.all.each do |user|
+  all_others = User.where.not('id = ?', user.id)
+  5.times do
+    date = Faker::Time.between(1.year.ago, 1.year.from_now)
+    event = user.created_events.create!(title: Faker::Lorem.sentence,
+                                        location: Faker::Address.full_address,
+                                        date: date)
+    puts "=====#{event.title}====="
+    all_others.each do |other_user|
+        random_created_at = (date > Time.now ? Faker::Time.between(2.months.ago, Time.now) : Faker::Time.between(date - 5.months, date))
+        random_attending = [true, false, nil].sample
+        event.attendances.create!(attendee: other_user,
+                                  attendance: random_attending,
+                                  date: random_created_at)
+    end
+  end
 end

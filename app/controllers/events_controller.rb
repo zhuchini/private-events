@@ -23,9 +23,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(id: params[:event_id])
+    @event = Event.find_by(id: params[:id])
     @users = User.all
-    @attendees = Attendance.where(event_id: params[:event_id])
+    @attendees = Attendance.where(event_id: params[:id])
   end
 
   def attendance
