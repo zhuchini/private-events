@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :created_events, foreign_key: 'creator_id', class_name: 'Event'
   has_many :attendances, foreign_key: 'attendee_id'
-  has_many :attended_events, through: :attendances
+  has_many :attended_events, through: :attendances, source: :event
 
   def upcoming_events
     created_events.where('date >= ?', Time.now).order(date: :asc)

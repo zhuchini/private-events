@@ -9,7 +9,6 @@
           <li class="list-item">
               <p><%= link_to(event.title, event_path(event)) %></p>
               <p>Happening On: <%= event.date %></p>
-              <p>Created by: <%= link_to(event.creator.name, user_path(event.creator)) %></p>
           </li>
       <% end %>
   </ul>
@@ -21,7 +20,6 @@
           <li class="list-item">
               <p><%= link_to(event.title, event_path(event)) %></p>
               <p>Happening On: <%= event.date %></p>
-              <p>Created by: <%= link_to(event.creator.name, user_path(event.creator)) %></p>
           </li>
       <% end %>
   </ul>
