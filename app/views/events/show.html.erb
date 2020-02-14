@@ -1,0 +1,16 @@
+<h2>Event</h2>
+<div>
+  <h3><%= @event.title %></h3>
+  <p>Created by: <%= @event.creator.name %></p>
+  <p>Location: <%= @event.location %></p>
+  <p>Date: <%= @event.date %></p>
+</div>
+
+<div>
+  <p><strong>Attendees: </strong></p>
+  <ul>
+    <% @event.attendances.each do |attendee| %>
+      <li><%= attendee.user.name %> | <%= attendee.user.email %></li>
+    <% end %>
+  </ul>
+</div>
