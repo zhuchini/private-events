@@ -1,0 +1,22 @@
+<h1>Profile: <%= @user.name %></h1>
+
+<div>
+  <h4>Upcoming Events</h4>
+  <ul>
+    <% @upcoming_events.each do |event| %>
+      <li>
+        <%= link_to(event.title, event_path(event)) %> | <%= event.date %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+  <h4>Past Events</h4>
+  <ul>
+    <% @previous_events.each do |event| %>
+      <li>
+        <%= link_to(event.title, event_path(event)) %> | <%= event.date %>
+      </li>
+    <% end %>
+  </ul>
+<div>

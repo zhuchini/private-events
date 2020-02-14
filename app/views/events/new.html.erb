@@ -1,0 +1,10 @@
+<h1>Create a new event</h1>
+<div>
+  <h1>New Event</h1>
+  <%= form_for @event , url: new_event_path do |f| %>
+    <%= f.text_field :title, placeholder: "Name of the event" %>
+    <%= f.text_field :location, placeholder: "Where will it be?" %>
+    <%= f.date_field :date %>
+    <%= f.submit 'Create Event' %>
+  <% end %>
+</div>

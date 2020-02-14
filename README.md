@@ -1,24 +1,30 @@
-# README
+# Associations - Project 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this project, you will build an application named Private Events and that behaves similar to Eventbrite. The main goal is to put in practice the main concepts of Associations in rails.
 
-Things you may want to cover:
+Full task description: https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* Configuration
+### Prerequisites
 
-* Database creation
+Run: rails db:migrate
 
-* Database initialization
+## Built With
 
-* How to run the test suite
+* [Ruby on Rails](https://guides.rubyonrails.org/) - The web framework used
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
 
-* Deployment instructions
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-* ...
+## Authors
+
+* **Michael Zhu** - *Initial work* - [zhuchini](https://github.com/zhuchini)
+
+## Acknowledgments
+
+* The Odin Project
+* Microverse

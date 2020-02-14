@@ -1,0 +1,13 @@
+<div>
+  <%= link_to 'Home', root_path %><br>
+  <%= link_to 'Back', :back %>
+</div><br>
+
+<% if logged_in?%>
+  Logged in as: <%= link_to current_user.name, user_path(current_user) %>
+  <br>
+  <%= link_to 'Create New Event', new_event_path %>
+<% else %>
+  <%= link_to 'Sign Up', new_user_path %><br>
+  <%= link_to 'Login', login_path %>
+<% end %>
